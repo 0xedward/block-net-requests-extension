@@ -18,3 +18,4 @@ If you are curious or concerned about the permissions requested by this extensio
 - `webRequest` and `webRequestBlocking` are used to block requests
 - `storage` is used to store which the state of network blocking per tab 
 - `"<all_urls>"` is necessary to block requests on any URL the user toggles blocking on
+- `contextMenus` is used to allow you to right click on the page to toggle blocking

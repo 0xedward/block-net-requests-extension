@@ -6,7 +6,8 @@
         "webRequest",
         "webRequestBlocking",
         "<all_urls>",
-        "storage"
+        "storage",
+        "contextMenus"
     ],
     "background": {
         "scripts": [

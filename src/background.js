@@ -1,20 +1,37 @@
+chrome.contextMenus.create({
+  id: "toggle-blocking",
+  title: "Toggle blocking requests on this page",
+  contexts: ["page"],
+});
+
 let blockingTabs = {}; // Object to store blocking state for each tab
 
 const updateBadge = (tabId) => {
   const isBlocking = blockingTabs[tabId] || false;
-  chrome.browserAction.setIcon({ path: isBlocking ? "icons/on.png" : "icons/off.png" });
+  chrome.browserAction.setIcon({
+    path: isBlocking ? "icons/on.png" : "icons/off.png",
+  });
   chrome.browserAction.setBadgeText({ text: isBlocking ? "on" : "off" });
   chrome.browserAction.setBadgeBackgroundColor({
     color: isBlocking ? "#00FF00" : "#FF0000",
   });
 };
 
-chrome.browserAction.onClicked.addListener((tab) => {
-  const tabId = tab.id;
-  // Toggle blocking state for the current tab
+// Toggle blocking state for the current tab
+const toggleBlocking = (tabId) => {
   blockingTabs[tabId] = !blockingTabs[tabId];
   chrome.storage.local.set({ blockingTabs });
   updateBadge(tabId);
+};
+
+chrome.contextMenus.onClicked.addListener(function (info, tab) {
+  if (info.menuItemId == "toggle-blocking") {
+    toggleBlocking(tab.id);
+  }
+});
+
+chrome.browserAction.onClicked.addListener((tab) => {
+  toggleBlocking(tab.id);
 });
 
 // Update badge when switching tabs
