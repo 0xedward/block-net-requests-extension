@@ -1,0 +1,1 @@
+# block-net-requests-extension
