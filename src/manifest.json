@@ -7,13 +7,25 @@
         "webRequestBlocking",
         "<all_urls>",
         "storage",
-        "contextMenus"
+        "contextMenus",
+        "tabs"
     ],
     "background": {
         "scripts": [
             "background.js"
         ]
     },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "options_page": "options.html",
     "browser_action": {
         "default_icon": "icons/128.png",
         "default_title": "Toggle blocking requests on this tab"
