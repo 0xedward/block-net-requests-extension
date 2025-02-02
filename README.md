@@ -7,9 +7,9 @@ This extension was built to ensure that all those static local-first apps do wha
 ## Installing extension from repo
 Note: Manifest V2 isn't supported by Chrome anymore, but it is still supported in Brave
 
-1. Download this repo as a ZIP file from GitHub
+1. Download [this repo as a ZIP file](https://github.com/0xedward/block-net-requests-extension/archive/refs/heads/main.zip)
 2. Unzip the file
-3. In Brave, go to the extensions page - chrome://extensions
+3. In Brave, go to the extensions page - brave://extensions
 4. Enable Developer Mode
 5. Click `Load unpacked` button and select the `src` folder that was extracted or drag the extracted `src` folder anywhere on the page to import it
 
